@@ -30,8 +30,8 @@
 
 <template lang="pug">
 div(class="row container")
-  div(class="col-3 border-end border-primary me-5")
-    ul(class="list-group me-1 mt-1")
+  div(class="col-3 border-end border-secondary me-5")
+    ul(class="list-group me-1 mt-3")
       li(class="list-group-item d-flex justify-content-between" v-for="name in room_names")
         span(class="fs-4") {{ name }}
         button(class="btn btn-danger") Delete
@@ -41,9 +41,13 @@ div(class="row container")
       button(type="button" class="btn-close" aria-label="Close")
     div(class="row my-5")
       div(class="col-6 alert alert-danger") placeholder for chart
-      div(class="col")
-        p(class="fs-4") energy cost = 41 zl 
-        p(class="fs-4") estimated month bill 30 zl 
+      div(class="list-group list-group-flush col mx-5")
+        div(class="list-group-item d-flex justify-content-between fs-4")
+          p energy cost
+          p 40 zl
+        div(class="list-group-item d-flex justify-content-between fs-4")
+          p estimated month bill
+          p 30 zl 
     div(class="row my-5")
       div(class="col mx-3")
         label(class="form label") price before limit
@@ -59,6 +63,6 @@ div(class="row container")
           h5(class="card-title") {{device.name}}
           h6(class="card-subtitle mb-2 text-muted") {{  device.room }}
         ul(class="list-group list-group-flush")
-          p(class="list-group-item fs-5") energy drain = {{ device.energy_drain }} kWh 
-          p(class="list-group-item fs-5") energy class {{ device.energy_class }}
+          li(class="list-group-item fs-5") energy drain = {{ device.energy_drain }} kWh 
+          li(class="list-group-item fs-5") energy class {{ device.energy_class }}
 </template>
