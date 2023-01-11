@@ -33,9 +33,11 @@ const highest_consumption_devices = [
 <template lang="pug">
 div(class="row container")
   div(class="col-3 border-end border-secondary me-5")
-    ul(class="list-group list-group-flush me-1 mt-3")
-      li(class="list-group-item d-flex justify-content-between" v-for="name in room_names")
-        span(class="fs-4" @click="router.push('/room/' + name)") {{ name }}
+    h3(class="text-center my-3") Rooms
+    ul(class="list-group list-group-flush me-1")
+      li(class="list-group-item list-group-item-action d-flex justify-content-between"
+      v-for="name in room_names" @click="router.push('/room/' + name)")
+        span(class="fs-4") {{ name }}
         button(class="btn btn-danger") Delete
   div(class="col text-center")
     h1(class="my-5") hello User!
@@ -43,7 +45,7 @@ div(class="row container")
       button(type="button" class="btn-close" aria-label="Close")
     div(class="row my-5")
       div(class="col-6 alert alert-danger") placeholder for chart
-      div(class="list-group list-group-flush col mx-5")
+      div(class="list-group col mx-5")
         div(class="list-group-item d-flex justify-content-between fs-4")
           p energy cost
           p 40 zl
