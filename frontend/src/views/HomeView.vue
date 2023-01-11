@@ -39,6 +39,10 @@ div(class="row container")
       v-for="name in room_names" @click="router.push('/room/' + name)")
         span(class="fs-4") {{ name }}
         button(class="btn btn-danger") Delete
+      li(class="list-group-item list-group-item-action d-flex justify-content-between")
+        div(class="input-group")
+          input(type="text" class="form-control fs-5" placeholder="new room name")
+          button(class="btn btn-outline-primary fs-5") Add
   div(class="col text-center")
     h1(class="my-5") hello User!
     div(class="alert alert-danger d-flex justify-content-between") example of warning message
