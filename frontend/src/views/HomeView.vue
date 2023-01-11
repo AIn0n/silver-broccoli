@@ -49,7 +49,7 @@ div(class="row container")
       button(type="button" class="btn-close" aria-label="Close")
     div(class="row my-5")
       div(class="col-6 alert alert-danger") placeholder for chart
-      div(class="list-group col mx-5")
+      div(class="list-group col ms-5")
         div(class="list-group-item d-flex justify-content-between fs-4")
           p energy cost
           p 40 zl

@@ -11,7 +11,7 @@ const devices_list = ["vacuum cleaner", "washing machine", "dishwasher", "tv"];
 div(class="row container")
   BorderList(title="Devices")
     li(class="list-group-item list-group-item-action fs-5" v-for="device in devices_list") {{ device }}
-    li(class="list-group-item list-group-item-action list-group-item-primary fs-5") Add new device
+    li(@click="router.push('/add-device')" class="list-group-item list-group-item-action list-group-item-primary fs-5") Add new device
   div(class="col text-center")
     h1(class="my-5") {{ name }}
     div(class="alert alert-primary") placeholder for chart
