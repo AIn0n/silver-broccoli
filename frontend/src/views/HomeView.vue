@@ -1,39 +1,41 @@
 <script setup lang="ts">
-  const room_names: string[] = [
-    'bedroom',
-    'bedroom 2', 
-    'kitchen',
-    'toilet',
-    'roof'
-  ]
-  const highest_consumption_devices = [
-    {
-      name: 'TV',
-      energy_class: 'C',
-      energy_drain: 300,
-      room: 'kitchen'
-    },
-    {
-      name: 'Vacuum cleaner',
-      energy_class: 'D--',
-      energy_drain: 250,
-      room: 'bedroom'
-    },
-    {
-      name: 'Blender',
-      energy_class: 'E',
-      energy_drain: 250,
-      room: 'kitchen'
-    }
-  ]
+import { useRouter } from 'vue-router';
+const router = useRouter();
+const room_names: string[] = [
+  "bedroom",
+  "bedroom 2",
+  "kitchen",
+  "toilet",
+  "roof",
+];
+const highest_consumption_devices = [
+  {
+    name: "TV",
+    energy_class: "C",
+    energy_drain: 300,
+    room: "kitchen",
+  },
+  {
+    name: "Vacuum cleaner",
+    energy_class: "D--",
+    energy_drain: 250,
+    room: "bedroom",
+  },
+  {
+    name: "Blender",
+    energy_class: "E",
+    energy_drain: 250,
+    room: "kitchen",
+  },
+];
 </script>
 
 <template lang="pug">
 div(class="row container")
   div(class="col-3 border-end border-secondary me-5")
-    ul(class="list-group me-1 mt-3")
+    ul(class="list-group list-group-flush me-1 mt-3")
       li(class="list-group-item d-flex justify-content-between" v-for="name in room_names")
-        span(class="fs-4") {{ name }}
+        span(class="fs-4" @click="router.push('/room/' + name)") {{ name }}
         button(class="btn btn-danger") Delete
   div(class="col text-center")
     h1(class="my-5") hello User!
