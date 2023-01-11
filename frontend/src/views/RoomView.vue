@@ -1,14 +1,9 @@
 <script setup lang="ts">
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute, useRouter } from "vue-router";
 const route = useRoute();
 const router = useRouter();
 const name = route.params.name;
-const devices_list = [
-  'vacuum cleaner',
-  'washing machine',
-  'dishwasher',
-  'tv'
-]
+const devices_list = ["vacuum cleaner", "washing machine", "dishwasher", "tv"];
 </script>
 
 <template lang="pug">

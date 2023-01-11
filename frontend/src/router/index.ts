@@ -11,11 +11,11 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/room/:name',
-      name: 'room',
+      path: "/room/:name",
+      name: "room",
       component: () => import("../views/RoomView.vue"),
-      props: true
-    }
+      props: true,
+    },
   ],
 });
 
