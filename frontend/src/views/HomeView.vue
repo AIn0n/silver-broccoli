@@ -6,6 +6,26 @@
     'toilet',
     'roof'
   ]
+  const highest_consumption_devices = [
+    {
+      name: 'TV',
+      energy_class: 'C',
+      energy_drain: 300,
+      room: 'kitchen'
+    },
+    {
+      name: 'Vacuum cleaner',
+      energy_class: 'D--',
+      energy_drain: 250,
+      room: 'bedroom'
+    },
+    {
+      name: 'Blender',
+      energy_class: 'E',
+      energy_drain: 250,
+      room: 'kitchen'
+    }
+  ]
 </script>
 
 <template lang="pug">
@@ -16,7 +36,8 @@ div(class="row container")
       button(class="btn btn-danger") Delete
   div(class="col text-center")
     h1(class="my-5") hello User!
-    div(class="alert alert-danger") hello world
+    div(class="alert alert-danger d-flex justify-content-between") hello world
+      button(type="button" class="btn-close" aria-label="Close")
     div(class="row my-5")
       div(class="col-6 alert alert-danger") placeholder for chart
       div(class="col")
@@ -30,4 +51,12 @@ div(class="row container")
         label(class="form label") price after limit
         input(class="form-control form-control-sm" type="number")
       button(class="btn btn-primary col") refresh price
+    div(class="row")
+      div(class="card col mx-3 my-3" v-for="device in highest_consumption_devices")
+        div(class="card-body")
+          h5(class="card-title") {{device.name}}
+          h6(class="card-subtitle mb-2 text-muted") {{  device.room }}
+        ul(class="list-group list-group-flush")
+          p(class="list-group-item") energy drain = {{ device.energy_drain }} kWh 
+          p(class="list-group-item") energy class {{ device.energy_class }}
 </template>
