@@ -30,33 +30,35 @@
 
 <template lang="pug">
 div(class="row container")
-  ul(class="list-group col-3 me-5")
-    li(class="list-group-item d-flex justify-content-between" v-for="name in room_names")
-      span {{ name }}
-      button(class="btn btn-danger") Delete
+  div(class="col-3 border-end border-primary me-5")
+    ul(class="list-group me-1 mt-1")
+      li(class="list-group-item d-flex justify-content-between" v-for="name in room_names")
+        span(class="fs-4") {{ name }}
+        button(class="btn btn-danger") Delete
   div(class="col text-center")
     h1(class="my-5") hello User!
-    div(class="alert alert-danger d-flex justify-content-between") hello world
+    div(class="alert alert-danger d-flex justify-content-between") example of warning message
       button(type="button" class="btn-close" aria-label="Close")
     div(class="row my-5")
       div(class="col-6 alert alert-danger") placeholder for chart
       div(class="col")
-        p energy cost = 41 zl 
-        p estimated month bill 30 zl 
+        p(class="fs-4") energy cost = 41 zl 
+        p(class="fs-4") estimated month bill 30 zl 
     div(class="row my-5")
-      div(class="col")
+      div(class="col mx-3")
         label(class="form label") price before limit
         input(class="form-control form-control-sm" type="number")
-      div(class="col")
+      div(class="col mx-3")
         label(class="form label") price after limit
         input(class="form-control form-control-sm" type="number")
-      button(class="btn btn-primary col") refresh price
-    div(class="row")
-      div(class="card col mx-3 my-3" v-for="device in highest_consumption_devices")
+      button(class="btn btn-primary col fs-5 mx-3") refresh price
+    h2 highest consumption devices
+    div(class="row my-5")
+      div(class="card col mx-3" v-for="device in highest_consumption_devices")
         div(class="card-body")
           h5(class="card-title") {{device.name}}
           h6(class="card-subtitle mb-2 text-muted") {{  device.room }}
         ul(class="list-group list-group-flush")
-          p(class="list-group-item") energy drain = {{ device.energy_drain }} kWh 
-          p(class="list-group-item") energy class {{ device.energy_class }}
+          p(class="list-group-item fs-5") energy drain = {{ device.energy_drain }} kWh 
+          p(class="list-group-item fs-5") energy class {{ device.energy_class }}
 </template>
