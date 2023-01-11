@@ -16,8 +16,8 @@ div(class="row container")
   div(class="col-3 border-end border-secondary me-5")
       h3(class="text-center my-3") Devices
       ul(class="list-group list-group-flush me-1")
-        li(class="list-group-item list-group-item-action fs-4" v-for="device in devices_list") {{ device }}
-        li(class="list-group-item list-group-item-action list-group-item-primary fs-4") Add new device
+        li(class="list-group-item list-group-item-action fs-5" v-for="device in devices_list") {{ device }}
+        li(class="list-group-item list-group-item-action list-group-item-primary fs-5") Add new device
   div(class="col text-center")
     h1(class="my-5") {{ name }}
     div(class="alert alert-primary") placeholder for chart

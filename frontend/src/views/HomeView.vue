@@ -37,12 +37,12 @@ div(class="row container")
     ul(class="list-group list-group-flush me-1")
       li(class="list-group-item list-group-item-action d-flex justify-content-between"
       v-for="name in room_names" @click="router.push('/room/' + name)")
-        span(class="fs-4") {{ name }}
+        span(class="fs-5") {{ name }}
         button(class="btn btn-danger") Delete
-      li(class="list-group-item list-group-item-action d-flex justify-content-between")
+      li(class="list-group-item list-group-item-action")
         div(class="input-group")
           input(type="text" class="form-control fs-5" placeholder="new room name")
-          button(class="btn btn-outline-primary fs-5") Add
+          button(class="btn btn-outline-primary") Add
   div(class="col text-center")
     h1(class="my-5") hello User!
     div(class="alert alert-danger d-flex justify-content-between") example of warning message
@@ -71,6 +71,10 @@ div(class="row container")
           h5(class="card-title") {{device.name}}
           h6(class="card-subtitle mb-2 text-muted") {{  device.room }}
         ul(class="list-group list-group-flush")
-          li(class="list-group-item fs-5") energy drain = {{ device.energy_drain }} kWh 
-          li(class="list-group-item fs-5") energy class {{ device.energy_class }}
+          li(class="list-group-item d-flex justify-content-between fs-5") 
+            p energy drain 
+            p {{ device.energy_drain }} kWh 
+          li(class="list-group-item d-flex justify-content-between fs-5")
+            p energy class 
+            p {{ device.energy_class }}
 </template>
