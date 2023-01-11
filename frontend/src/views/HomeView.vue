@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
+import BorderList from "@/components/BorderList.vue";
+
 const router = useRouter();
 const room_names: string[] = [
   "bedroom",
@@ -32,17 +34,15 @@ const highest_consumption_devices = [
 
 <template lang="pug">
 div(class="row container")
-  div(class="col-3 border-end border-secondary me-5")
-    h3(class="text-center my-3") Rooms
-    ul(class="list-group list-group-flush me-1")
-      li(class="list-group-item list-group-item-action d-flex justify-content-between"
-      v-for="name in room_names" @click="router.push('/room/' + name)")
-        span(class="fs-5") {{ name }}
-        button(class="btn btn-danger") Delete
-      li(class="list-group-item list-group-item-action")
-        div(class="input-group")
-          input(type="text" class="form-control fs-5" placeholder="new room name")
-          button(class="btn btn-outline-primary") Add
+  BorderList(title="Rooms")
+    li(class="list-group-item list-group-item-action d-flex justify-content-between"
+    v-for="name in room_names" @click="router.push('/room/' + name)")
+      span(class="fs-5") {{ name }}
+      button(class="btn btn-danger") Delete
+    li(class="list-group-item list-group-item-action")
+      div(class="input-group")
+        input(type="text" class="form-control fs-5" placeholder="new room name")
+        button(class="btn btn-outline-primary") Add
   div(class="col text-center")
     h1(class="my-5") hello User!
     div(class="alert alert-danger d-flex justify-content-between") example of warning message
@@ -65,7 +65,7 @@ div(class="row container")
         input(class="form-control form-control-sm" type="number")
       button(class="btn btn-primary col fs-5 mx-3") refresh price
     h2 highest consumption devices
-    div(class="row my-5")
+    div(class="row mt-5")
       div(class="card col mx-3" v-for="device in highest_consumption_devices")
         div(class="card-body")
           h5(class="card-title") {{device.name}}

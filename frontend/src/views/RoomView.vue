@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from "vue-router";
+import BorderList from "@/components/BorderList.vue";
 const route = useRoute();
 const router = useRouter();
 const name = route.params.name;
@@ -8,11 +9,9 @@ const devices_list = ["vacuum cleaner", "washing machine", "dishwasher", "tv"];
 
 <template lang="pug">
 div(class="row container")
-  div(class="col-3 border-end border-secondary me-5" style="height:100vh")
-      h3(class="text-center my-3") Devices
-      ul(class="list-group list-group-flush me-1")
-        li(class="list-group-item list-group-item-action fs-5" v-for="device in devices_list") {{ device }}
-        li(class="list-group-item list-group-item-action list-group-item-primary fs-5") Add new device
+  BorderList(title="Devices")
+    li(class="list-group-item list-group-item-action fs-5" v-for="device in devices_list") {{ device }}
+    li(class="list-group-item list-group-item-action list-group-item-primary fs-5") Add new device
   div(class="col text-center")
     h1(class="my-5") {{ name }}
     div(class="alert alert-primary") placeholder for chart
