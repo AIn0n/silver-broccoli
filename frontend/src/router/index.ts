@@ -16,6 +16,11 @@ const router = createRouter({
       component: () => import("../views/RoomView.vue"),
       props: true,
     },
+    {
+      path: "/add-device",
+      name: "add-device",
+      component: () => import("../views/CreateDevice.vue"),
+    },
   ],
 });
 
