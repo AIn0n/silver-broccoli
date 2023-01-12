@@ -44,7 +44,7 @@ div(class="row container")
         input(type="text" class="form-control fs-5" placeholder="new room name")
         button(class="btn btn-outline-primary") Add
   div(class="col text-center")
-    h1(class="my-5") hello User!
+    fa-icon(icon="phone")
     div(class="alert alert-danger d-flex justify-content-between") example of warning message
       button(type="button" class="btn-close" aria-label="Close")
     div(class="row my-5")
