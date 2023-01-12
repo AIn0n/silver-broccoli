@@ -38,13 +38,13 @@ div(class="row container")
     li(class="list-group-item list-group-item-action d-flex justify-content-between"
     v-for="name in room_names" @click="router.push('/room/' + name)")
       span(class="fs-5") {{ name }}
-      button(class="btn btn-danger") Delete
+      button(type="button" class="btn-close" aria-label="Close")
     li(class="list-group-item list-group-item-action")
       div(class="input-group")
         input(type="text" class="form-control fs-5" placeholder="new room name")
         button(class="btn btn-outline-primary") Add
   div(class="col text-center")
-    fa-icon(icon="phone")
+    h1(class="my-5") hello User!
     div(class="alert alert-danger d-flex justify-content-between") example of warning message
       button(type="button" class="btn-close" aria-label="Close")
     div(class="row my-5")
@@ -58,13 +58,17 @@ div(class="row container")
           p 30 zl 
     div(class="row my-5")
       div(class="col mx-3")
+        fa-icon(icon="fa-wallet" class="me-1 fa-lg")
         label(class="form label") price before limit
         input(class="form-control form-control-sm" type="number")
       div(class="col mx-3")
+        fa-icon(icon="fa-wallet" class="me-1 fa-lg")
         label(class="form label") price after limit
         input(class="form-control form-control-sm" type="number")
       button(class="btn btn-primary col fs-5 mx-3") refresh price
-    h2 highest consumption devices
+    div(class="d-flex")
+      fa-icon(icon="fa-chart-line" class="fa-pull-left fa-2xl")
+      h2 highest consumption devices
     div(class="row mt-5")
       div(class="card col mx-3" v-for="device in highest_consumption_devices")
         div(class="card-body")

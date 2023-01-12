@@ -20,7 +20,7 @@ const router = createRouter({
       path: "/add-device",
       name: "add-device",
       component: () => import("../views/CreateDevice.vue"),
-    }
+    },
   ],
 });
 

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
+import { useRouter } from "vue-router";
 const router = useRouter();
-const energy_classes = ['A++', 'A+', 'B', 'C'];
-const device_types = ['default', 'solar', 'accumulator'];
+const energy_classes = ["A++", "A+", "B", "C"];
+const device_types = ["default", "solar", "accumulator"];
 </script>
 
 <template lang="pug">
