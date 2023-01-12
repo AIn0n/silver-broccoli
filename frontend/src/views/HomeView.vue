@@ -64,10 +64,8 @@ div(class="row container")
       div(class="col mx-3")
         IconAndSpan(icon="fa-wallet" text="price after limit")
         input(class="form-control form-control-sm" type="number")
-      button(class="btn btn-primary col fs-5 mx-3") refresh price
-    div(class="d-flex")
-      fa-icon(icon="fa-chart-line" class="fa-pull-left fa-2xl")
-      h2 highest consumption devices
+      button(class="btn btn-primary col fs-5 mx-2") refresh price
+    IconAndSpan(icon="fa-chart-line" text="highest consumption devices")
     div(class="row mt-5")
       div(class="card border-warning col mx-3" v-for="device in highest_consumption_devices")
         div(class="card-body")

@@ -5,5 +5,6 @@ const device = route.params.device;
 </script>
 
 <template lang="pug">
-p {{ device }}
+div(class="container text-center")
+  h1(class="my-5") Edit {{ device }}
 </template>
