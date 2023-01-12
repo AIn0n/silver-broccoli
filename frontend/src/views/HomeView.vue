@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 import BorderList from "@/components/BorderList.vue";
+import IconAndSpan from "@/components/IconAndSpan.vue";
 
 const router = useRouter();
 const room_names: string[] = [
@@ -58,12 +59,10 @@ div(class="row container")
           p 30 zl 
     div(class="row my-5")
       div(class="col mx-3")
-        fa-icon(icon="fa-wallet" class="me-1 fa-lg")
-        label(class="form label") price before limit
+        IconAndSpan(icon="fa-wallet" text="price before limit")
         input(class="form-control form-control-sm" type="number")
       div(class="col mx-3")
-        fa-icon(icon="fa-wallet" class="me-1 fa-lg")
-        label(class="form label") price after limit
+        IconAndSpan(icon="fa-wallet" text="price after limit")
         input(class="form-control form-control-sm" type="number")
       button(class="btn btn-primary col fs-5 mx-3") refresh price
     div(class="d-flex")
