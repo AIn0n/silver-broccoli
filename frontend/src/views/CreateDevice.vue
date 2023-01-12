@@ -9,6 +9,8 @@ const device_types = ["default", "solar", "accumulator"];
 <template lang="pug">
 div(class="container w-50 text-center")
   h1(class="my-5") Add new device
+  div(class="alert alert-danger d-flex justify-content-between") example of warning message
+    button(type="button" class="btn-close" aria-label="Close")
   IconAndSpan(icon="fa-house-laptop" text="Device name")
   input(class="form-control form-control-lg" type="text" placeholder="new device's name")
   IconAndSpan(icon="fa-lightbulb" text="type")

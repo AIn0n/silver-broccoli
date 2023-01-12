@@ -1,4 +1,6 @@
-<script setup lang="ts">defineProps(['icon', 'text'])</script>
+<script setup lang="ts">
+defineProps(["icon", "text"]);
+</script>
 
 <template lang="pug">
 div(class="container mt-3")

@@ -45,15 +45,15 @@ div(class="row container")
         button(class="btn btn-outline-primary") Add
   div(class="col text-center")
     h1(class="my-5") hello User!
-    div(class="alert alert-danger d-flex justify-content-between") example of warning message
+    div(class="alert alert-dark d-flex justify-content-between") example of warning message
       button(type="button" class="btn-close" aria-label="Close")
     div(class="row my-5")
       div(class="col-6 alert alert-danger") placeholder for chart
       div(class="list-group col ms-5")
-        div(class="list-group-item d-flex justify-content-between fs-4")
+        div(class="list-group-item list-group-item-warning d-flex justify-content-between fs-4")
           p energy cost
           p 40 zl
-        div(class="list-group-item d-flex justify-content-between fs-4")
+        div(class="list-group-item list-group-item-warning d-flex justify-content-between fs-4")
           p estimated month bill
           p 30 zl 
     div(class="row my-5")
@@ -70,7 +70,7 @@ div(class="row container")
       fa-icon(icon="fa-chart-line" class="fa-pull-left fa-2xl")
       h2 highest consumption devices
     div(class="row mt-5")
-      div(class="card col mx-3" v-for="device in highest_consumption_devices")
+      div(class="card border-warning col mx-3" v-for="device in highest_consumption_devices")
         div(class="card-body")
           h5(class="card-title") {{device.name}}
           h6(class="card-subtitle mb-2 text-muted") {{  device.room }}
