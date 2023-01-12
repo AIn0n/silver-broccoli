@@ -15,5 +15,5 @@ div(class="row container")
   div(class="col text-center")
     h1(class="my-5") {{ name }}
     div(class="alert alert-primary") placeholder for chart
-    button(@click="router.push('/')" class="btn btn-outline-secondary position-absolute bottom-0 end-0 mx-5 my-5 fs-4") back
+    button(@click="router.push('/')" class="btn btn-outline-secondary position-absolute top-0 end-0 mx-5 my-5 fs-4") back
 </template>

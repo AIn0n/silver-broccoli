@@ -23,7 +23,6 @@ div(class="container w-50 text-center")
   div(class="input-group mt-1")
     input(type="text" class="form-control form-control-lg" placeholder="energy drain in kWh")
     span(class="input-group-text") kWh
-  div(class="d-flex justify-content-between mt-5")
-    button(class="btn btn-lg btn-primary") Create 
-    button(@click="router.back()" class="btn btn-lg btn-outline-secondary") Back 
+button(@click="router.back()" class="btn btn-outline-secondary position-absolute top-0 end-0 mx-5 my-5 fs-4") back
+button(class="btn btn-primary position-absolute top-0 start-0 mx-5 my-5 fs-4") Create
 </template>

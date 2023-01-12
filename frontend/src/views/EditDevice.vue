@@ -76,6 +76,6 @@ div(class="container text-center w-75")
             label(class="form-check-label") {{ day }}
     div
       button(type="button" class="btn-close" aria-label="Close")
-button(@click="router.back()" class="btn btn-outline-secondary position-absolute bottom-0 end-0 mx-5 my-5 fs-4") back
-button(class="btn btn-primary position-absolute bottom-0 start-0 mx-5 my-5 fs-4") update
+button(@click="router.back()" class="btn btn-outline-secondary position-absolute top-0 end-0 mx-5 my-5 fs-4") back
+button(class="btn btn-primary position-absolute top-0 start-0 mx-5 my-5 fs-4") update
 </template>
