@@ -55,7 +55,7 @@ div(class="container text-center w-75")
           input(class="form-check-input" type="checkbox")
           label(class="form-check-label") {{ day }}
   div(class="d-flex align-items-center" v-for="timestamp in timestamps")
-    div(class="card text-bg-primary mx-5 my-3")
+    div(class="card text-bg-primary me-5 my-3")
       div(class="list-group list-group-flush")
         div(class="list-group-item d-flex justify-content-between")
           div(class="input-group input-group-sm w-50 mx-3 my-3")
