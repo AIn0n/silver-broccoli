@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
+import IconAndSpan from "@/components/IconAndSpan.vue";
 const router = useRouter();
 const energy_classes = ["A++", "A+", "B", "C"];
 const device_types = ["default", "solar", "accumulator"];
@@ -8,22 +9,15 @@ const device_types = ["default", "solar", "accumulator"];
 <template lang="pug">
 div(class="container w-50 text-center")
   h1(class="my-5") Add new device
-  fa-icon(icon="fa-house-laptop" class="me-3 fa-lg")
-  span(class="fs-5") Device name
+  IconAndSpan(icon="fa-house-laptop" text="Device name")
   input(class="form-control form-control-lg" type="text" placeholder="new device's name")
-  div(class="container mt-3")
-    fa-icon(icon="fa-lightbulb" class="me-3 fa-lg")
-    span(class="fs-5") type
+  IconAndSpan(icon="fa-lightbulb" text="type")
   select(class="form-select form-select-lg")
     option(v-for="device_type in device_types") {{ device_type }}
-  div(class="container mt-3")
-    fa-icon(icon="fa-plug" class="me-3 fa-lg")
-    span(class="fs-5 mt-3") energy class
+  IconAndSpan(icon="fa-plug" text="energy class")
   select(class="form-select form-select-lg")
     option(v-for="cls in energy_classes") {{ cls }}
-  div(class="container mt-3")
-    fa-icon(icon="fa-bolt" class="me-3 fa-lg")
-    span(class="fs-5 mt-3") energy drain
+  IconAndSpan(icon="fa-bolt" text="energy drain")
   div(class="input-group")
     input(type="text" class="form-control form-control-lg" placeholder="energy drain in kWh")
     span(class="input-group-text") kWh
