@@ -21,6 +21,12 @@ const router = createRouter({
       name: "add-device",
       component: () => import("../views/CreateDevice.vue"),
     },
+    {
+      path: "/edit-device/:device",
+      name: "edit-device",
+      component: () => import("../views/EditDevice.vue"),
+      props: true
+    }
   ],
 });
 
