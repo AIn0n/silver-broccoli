@@ -9,21 +9,20 @@ const device_types = ["default", "solar", "accumulator"];
 <template lang="pug">
 div(class="container w-50 text-center")
   h1(class="my-5") Add new device
-  div(class="alert alert-danger d-flex justify-content-between") example of warning message
+  div(class="alert alert-dark d-flex justify-content-between") example of warning message
     button(type="button" class="btn-close" aria-label="Close")
   IconAndSpan(icon="fa-house-laptop" text="Device name")
-  input(class="form-control form-control-lg" type="text" placeholder="new device's name")
+  input(class="form-control form-control-lg mt-1" type="text" placeholder="new device's name")
   IconAndSpan(icon="fa-lightbulb" text="type")
-  select(class="form-select form-select-lg")
+  select(class="form-select form-select-lg mt-1")
     option(v-for="device_type in device_types") {{ device_type }}
   IconAndSpan(icon="fa-plug" text="energy class")
   select(class="form-select form-select-lg")
     option(v-for="cls in energy_classes") {{ cls }}
   IconAndSpan(icon="fa-bolt" text="energy drain")
-  div(class="input-group")
+  div(class="input-group mt-1")
     input(type="text" class="form-control form-control-lg" placeholder="energy drain in kWh")
     span(class="input-group-text") kWh
-  div(class="d-flex justify-content-between mt-5")
-    button(class="btn btn-lg btn-primary") Create 
-    button(@click="router.back()" class="btn btn-lg btn-outline-secondary") Back 
+button(@click="router.back()" class="btn btn-outline-secondary position-absolute top-0 end-0 mx-5 my-5 fs-4") back
+button(class="btn btn-primary position-absolute top-0 start-0 mx-5 my-5 fs-4") Create
 </template>
