@@ -30,8 +30,30 @@ const timestamps = [
 </script>
 
 <template lang="pug">
-div(class="container text-center")
+div(class="container text-center w-75")
   h1(class="my-5") Edit {{ device }}
+  div(class="alert alert-dark d-flex justify-content-between") example of warning message
+    button(type="button" class="btn-close" aria-label="Close")
+  div(class="card text-bg-primary my-3")
+    div(class="card-header") add new timestamp
+    div(class="list-group list-group-flush")
+      div(class="list-group-item d-flex justify-content-between")
+        div(class="input-group input-group-sm w-50 mx-3 my-3")
+          span(class="input-group-text") start
+          input(type="number" class="form-control" placeholder="hours")
+          span(class="input-group-text") H
+          input(type="number" class="form-control" placeholder="minutes")
+          span(class="input-group-text") M
+        div(class="input-group input-group-sm w-50 mx-3 my-3")
+          span(class="input-group-text") end
+          input(type="number" class="form-control" placeholder="hours")
+          span(class="input-group-text") H
+          input(type="number" class="form-control" placeholder="minutes")
+          span(class="input-group-text") M
+      div(class="list-group-item")
+        div(class="form-check form-check-inline mx-4" v-for="day in days")
+          input(class="form-check-input" type="checkbox")
+          label(class="form-check-label") {{ day }}
   div(class="d-flex align-items-center" v-for="timestamp in timestamps")
     div(class="card text-bg-primary mx-5 my-3")
       div(class="list-group list-group-flush")
