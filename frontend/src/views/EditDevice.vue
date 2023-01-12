@@ -32,27 +32,28 @@ const timestamps = [
 <template lang="pug">
 div(class="container text-center")
   h1(class="my-5") Edit {{ device }}
-  div(class="card text-bg-dark mx-5 my-5" v-for="timestamp in timestamps")
-    div(class="list-group list-group-flush")
-      div(class="list-group-item d-flex justify-content-between")
-        div(class="input-group input-group-sm w-50 mx-3 my-3")
-          span(class="input-group-text") start
-          input(type="number" class="form-control" v-model="timestamp.start_hour")
-          span(class="input-group-text") H
-          input(type="number" class="form-control" v-model="timestamp.start_minute")
-          span(class="input-group-text") M
-        div(class="input-group input-group-sm w-50 mx-3 my-3")
-          span(class="input-group-text") end
-          input(type="number" class="form-control" v-model="timestamp.end_hour")
-          span(class="input-group-text") H
-          input(type="number" class="form-control" v-model="timestamp.end_minute")
-          span(class="input-group-text") M
-      div(class="list-group-item")
-        div(class="form-check form-check-inline mx-4" v-for="day in days")
-          input(class="form-check-input" type="checkbox")
-          label(class="form-check-label") {{ day }}
-      div(class="list-group-item")
-        button(type="button" class="btn btn-danger") remove
+  div(class="d-flex align-items-center" v-for="timestamp in timestamps")
+    div(class="card text-bg-primary mx-5 my-3")
+      div(class="list-group list-group-flush")
+        div(class="list-group-item d-flex justify-content-between")
+          div(class="input-group input-group-sm w-50 mx-3 my-3")
+            span(class="input-group-text") start
+            input(type="number" class="form-control" v-model="timestamp.start_hour")
+            span(class="input-group-text") H
+            input(type="number" class="form-control" v-model="timestamp.start_minute")
+            span(class="input-group-text") M
+          div(class="input-group input-group-sm w-50 mx-3 my-3")
+            span(class="input-group-text") end
+            input(type="number" class="form-control" v-model="timestamp.end_hour")
+            span(class="input-group-text") H
+            input(type="number" class="form-control" v-model="timestamp.end_minute")
+            span(class="input-group-text") M
+        div(class="list-group-item")
+          div(class="form-check form-check-inline mx-4" v-for="day in days")
+            input(class="form-check-input" type="checkbox")
+            label(class="form-check-label") {{ day }}
+    div
+      button(type="button" class="btn-close" aria-label="Close")
 button(@click="router.back()" class="btn btn-outline-secondary position-absolute bottom-0 end-0 mx-5 my-5 fs-4") back
 button(class="btn btn-primary position-absolute bottom-0 start-0 mx-5 my-5 fs-4") update
 </template>
