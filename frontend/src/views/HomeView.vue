@@ -2,15 +2,19 @@
 import { useRouter } from "vue-router";
 import BorderList from "@/components/BorderList.vue";
 import IconAndSpan from "@/components/IconAndSpan.vue";
+import { onBeforeMount, ref } from "vue";
+import api from "../utilities/axios_config";
 
 const router = useRouter();
-const room_names: string[] = [
-  "bedroom",
-  "bedroom 2",
-  "kitchen",
-  "toilet",
-  "roof",
-];
+
+const rooms = ref([]);
+
+onBeforeMount(()=>{
+  api.get("/room/")
+    .then((res)=>{ rooms.value = res.data.map((x: { name: any; }) => x.name) })
+    .catch((e)=>{console.log(e)})
+})
+
 const highest_consumption_devices = [
   {
     name: "TV",
@@ -37,8 +41,8 @@ const highest_consumption_devices = [
 div(class="row container")
   BorderList(title="Rooms")
     li(class="list-group-item list-group-item-action d-flex justify-content-between"
-    v-for="name in room_names" @click="router.push('/room/' + name)")
-      span(class="fs-5") {{ name }}
+    v-for="room in rooms" @click="router.push('/room/' + room)")
+      span(class="fs-5") {{ room }}
       button(type="button" class="btn-close" aria-label="Close")
     li(class="list-group-item list-group-item-action")
       div(class="input-group")
