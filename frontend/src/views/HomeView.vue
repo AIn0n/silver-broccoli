@@ -1,18 +1,22 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
+//components
+import AlertComponent from "@/components/AlertComponent.vue";
 import BorderList from "@/components/BorderList.vue";
 import IconAndSpan from "@/components/IconAndSpan.vue";
 import { onBeforeMount, ref } from "vue";
 import api from "../utilities/axios_config";
 
 const router = useRouter();
-
+const error_text = ref("example of warning message");
 const rooms = ref([]);
 
 onBeforeMount(()=>{
   api.get("/room/")
     .then((res)=>{ rooms.value = res.data.map((x: { name: any; }) => x.name) })
-    .catch((e)=>{console.log(e)})
+    .catch((e)=>{
+      error_text.value = e.message + " (probably backend is not working)"
+    })
 })
 
 const highest_consumption_devices = [
@@ -50,8 +54,7 @@ div(class="row container")
         button(class="btn btn-outline-primary") Add
   div(class="col text-center")
     h1(class="my-5") hello User!
-    div(class="alert alert-dark d-flex justify-content-between") example of warning message
-      button(type="button" class="btn-close" aria-label="Close")
+    AlertComponent(:text="error_text" @clear="error_text = error_text.slice(0,0);")
     div(class="row my-5")
       div(class="col-6 alert alert-danger") placeholder for chart
       div(class="list-group col ms-5")
