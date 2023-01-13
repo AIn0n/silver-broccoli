@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from .timestamp import Timestamp
 from enum import IntEnum
+from typing import Optional
 
 
 class EnergyClass(IntEnum):
@@ -24,4 +25,4 @@ class Device(BaseModel):
     parameter: float
     name: str
     device_type: DeviceType
-    timestamps: list[Timestamp]
+    timestamps: Optional[list[Timestamp]] = []
