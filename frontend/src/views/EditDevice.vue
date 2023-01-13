@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router';
+import { ref } from 'vue';
+import AlertComponent from '@/components/AlertComponent.vue';
+
+const error_text = ref("example of warning");
 const route = useRoute();
 const router = useRouter();
 const device = route.params.device;
@@ -32,8 +36,7 @@ const timestamps = [
 <template lang="pug">
 div(class="container text-center w-75")
   h1(class="my-5") Edit {{ device }}
-  div(class="alert alert-dark d-flex justify-content-between") example of warning message
-    button(type="button" class="btn-close" aria-label="Close")
+  AlertComponent(:text="error_text" @clear="error_text = ''")
   div(class="card text-bg-primary my-3")
     div(class="card-header") add new timestamp
     div(class="list-group list-group-flush")

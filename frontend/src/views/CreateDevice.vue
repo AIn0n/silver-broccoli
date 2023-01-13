@@ -1,16 +1,21 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
+import { ref } from "vue";
+// components
+import AlertComponent from "@/components/AlertComponent.vue";
 import IconAndSpan from "@/components/IconAndSpan.vue";
+
 const router = useRouter();
 const energy_classes = ["A++", "A+", "B", "C"];
 const device_types = ["default", "solar", "accumulator"];
+const error_text = ref("example warning message");
+
 </script>
 
 <template lang="pug">
 div(class="container w-50 text-center")
   h1(class="my-5") Add new device
-  div(class="alert alert-dark d-flex justify-content-between") example of warning message
-    button(type="button" class="btn-close" aria-label="Close")
+  AlertComponent(:text="error_text" @clear="error_text = ''")
   IconAndSpan(icon="fa-house-laptop" text="Device name")
   input(class="form-control form-control-lg mt-1" type="text" placeholder="new device's name")
   IconAndSpan(icon="fa-lightbulb" text="type")
