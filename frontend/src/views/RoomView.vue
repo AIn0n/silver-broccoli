@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from "vue-router";
-import { ref, onBeforeMount } from "vue";
+import { ref } from "vue";
 
 import BorderList from "@/components/BorderList.vue";
 import api from "@/utilities/axios_config";
 
 const route = useRoute();
 const router = useRouter();
-const name = route.params.name;
+const { name } = route.params;
 const devices = ref([]);
 
 api
-  .get("/" + name + "/device")
+  .get(`/${name}/device`)
   .then((res) => (devices.value = res.data))
   .catch(router.back);
 </script>
