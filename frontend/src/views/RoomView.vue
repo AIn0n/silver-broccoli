@@ -1,16 +1,27 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from "vue-router";
+import { ref, onBeforeMount } from "vue";
+
 import BorderList from "@/components/BorderList.vue";
+import api from "@/utilities/axios_config";
+
 const route = useRoute();
 const router = useRouter();
 const name = route.params.name;
-const devices_list = ["vacuum cleaner", "washing machine", "dishwasher", "tv"];
+const devices = ref([]);
+
+onBeforeMount(() => {
+  api
+    .get("/" + name + "/device")
+    .then((res) => (devices.value = res.data))
+    .catch((e) => router.back());
+});
 </script>
 
 <template lang="pug">
 div(class="row container")
   BorderList(title="Devices")
-    li(@click="router.push('/edit-device/' + device)" class="list-group-item list-group-item-action fs-5" v-for="device in devices_list") {{ device }}
+    li(@click="router.push('/edit-device/' + device.name)" class="list-group-item list-group-item-action fs-5" v-for="device in devices") {{ device.name }}
     li(@click="router.push('/' + name + '/add-device')" class="list-group-item list-group-item-action list-group-item-primary fs-5") Add new device
   div(class="col text-center")
     h1(class="my-5") {{ name }}
