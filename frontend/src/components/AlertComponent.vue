@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  defineProps(['text'])
-  defineEmits(['clear'])
+defineProps(["text"]);
+defineEmits(["clear"]);
 </script>
 
 <template lang="pug">

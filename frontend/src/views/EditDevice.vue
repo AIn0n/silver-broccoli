@@ -1,36 +1,44 @@
 <script setup lang="ts">
-import { useRoute, useRouter } from 'vue-router';
-import { ref } from 'vue';
-import AlertComponent from '@/components/AlertComponent.vue';
+import { useRoute, useRouter } from "vue-router";
+import { ref } from "vue";
+import AlertComponent from "@/components/AlertComponent.vue";
 
 const error_text = ref("example of warning");
 const route = useRoute();
 const router = useRouter();
 const device = route.params.device;
-const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 const timestamps = [
   {
     weekdays: ["Monday", "Saturday"],
     start_hour: 12,
     start_minute: 30,
     end_hour: 13,
-    end_minute: 0
+    end_minute: 0,
   },
   {
     weekdays: ["Sunday"],
     start_hour: 12,
     start_minute: 30,
     end_hour: 13,
-    end_minute: 0
+    end_minute: 0,
   },
   {
     weekdays: ["Monday", "Tuesday"],
     start_hour: 13,
     start_minute: 45,
     end_hour: 20,
-    end_minute: 30
-  }
-]
+    end_minute: 30,
+  },
+];
 </script>
 
 <template lang="pug">

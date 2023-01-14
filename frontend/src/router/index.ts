@@ -17,16 +17,17 @@ const router = createRouter({
       props: true,
     },
     {
-      path: "/add-device",
+      path: "/:room/add-device",
       name: "add-device",
       component: () => import("../views/CreateDevice.vue"),
+      props: true,
     },
     {
       path: "/edit-device/:device",
       name: "edit-device",
       component: () => import("../views/EditDevice.vue"),
-      props: true
-    }
+      props: true,
+    },
   ],
 });
 
