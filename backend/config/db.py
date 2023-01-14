@@ -1,7 +1,9 @@
-from pymongo import MongoClient
+import pymongo
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 
-conn = MongoClient(os.getenv("MONGO_URL"))
+conn = pymongo.MongoClient(os.getenv("MONGO_URL"))
+
+conn["database"]["rooms"].create_index([("name", pymongo.DESCENDING)],unique=True)

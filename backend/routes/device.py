@@ -7,6 +7,8 @@ device = APIRouter()
 
 @device.post("/{room}/device")
 def add_new_device(room: str, device: Device):
+    if len(device.name) < 1:
+      return {"message" : "cannot add device - empty name"}
     conn["database"]["rooms"].update_one(
         {"name": room}, {"$push": {"devices": dict(device)}}
     )
