@@ -7,10 +7,17 @@ device = APIRouter()
 
 
 def retrieve_devices_from_room(room: str) -> list:
-    return map(
-        lambda n: device_entity(n),
-        conn["database"]["rooms"].find_one({"name": room})["devices"],
+    return list(
+        map(
+            lambda n: device_entity(n),
+            conn["database"]["rooms"].find_one({"name": room})["devices"],
+        )
     )
+
+
+@device.get("/{room}/device")
+def get_devices_from_room(room: str):
+    return retrieve_devices_from_room(room)
 
 
 @device.post("/{room}/device")
