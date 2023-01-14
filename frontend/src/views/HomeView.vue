@@ -8,19 +8,32 @@ import { onBeforeMount, ref } from "vue";
 import api from "../utilities/axios_config";
 
 const router = useRouter();
-const error_text = ref("example of warning message");
+const error = ref("example of warning message");
 const rooms = ref([]);
+const new_room_name = ref("");
 
-onBeforeMount(() => {
+function get_rooms() {
   api
     .get("/room/")
     .then((res) => {
       rooms.value = res.data.map((x: { name: any }) => x.name);
     })
     .catch((e) => {
-      error_text.value = e.message + " (probably backend is not working)";
+      error.value = e.message + " (probably backend is not working)";
     });
-});
+}
+
+onBeforeMount(get_rooms);
+
+function add_room() {
+  api
+    .post("/room/", { name: new_room_name.value })
+    .then((res) => {
+      error.value = res.data.message;
+      get_rooms();
+    })
+    .catch((e) => (error.value = e.message));
+}
 
 const highest_consumption_devices = [
   {
@@ -53,11 +66,11 @@ div(class="row container")
       button(type="button" class="btn-close" aria-label="Close")
     li(class="list-group-item list-group-item-action")
       div(class="input-group")
-        input(type="text" class="form-control fs-5" placeholder="new room name")
-        button(class="btn btn-outline-primary") Add
+        input(type="text" class="form-control fs-5" placeholder="new room name" v-model="new_room_name")
+        button(class="btn btn-outline-primary" @click="add_room") Add
   div(class="col text-center")
     h1(class="my-5") hello User!
-    AlertComponent(:text="error_text" @clear="error_text = error_text.slice(0,0);")
+    AlertComponent(:text="error" @clear="error = ''")
     div(class="row my-5")
       div(class="col-6 alert alert-danger") placeholder for chart
       div(class="list-group col ms-5")
