@@ -11,13 +11,16 @@ const router = useRouter();
 const error_text = ref("example of warning message");
 const rooms = ref([]);
 
-onBeforeMount(()=>{
-  api.get("/room/")
-    .then((res)=>{ rooms.value = res.data.map((x: { name: any; }) => x.name) })
-    .catch((e)=>{
-      error_text.value = e.message + " (probably backend is not working)"
+onBeforeMount(() => {
+  api
+    .get("/room/")
+    .then((res) => {
+      rooms.value = res.data.map((x: { name: any }) => x.name);
     })
-})
+    .catch((e) => {
+      error_text.value = e.message + " (probably backend is not working)";
+    });
+});
 
 const highest_consumption_devices = [
   {

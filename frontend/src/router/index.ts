@@ -25,8 +25,8 @@ const router = createRouter({
       path: "/edit-device/:device",
       name: "edit-device",
       component: () => import("../views/EditDevice.vue"),
-      props: true
-    }
+      props: true,
+    },
   ],
 });
 

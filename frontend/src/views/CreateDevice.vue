@@ -1,15 +1,29 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
-import { ref } from "vue";
+import { ref, onBeforeMount } from "vue";
 // components
 import AlertComponent from "@/components/AlertComponent.vue";
 import IconAndSpan from "@/components/IconAndSpan.vue";
+import api from "@/utilities/axios_config";
 
 const router = useRouter();
-const energy_classes = ["A++", "A+", "B", "C"];
+let energy_classes: Object;
 const device_types = ["default", "solar", "accumulator"];
 const error_text = ref("example warning message");
 
+const en_cls = ref(0);
+
+onBeforeMount(() => {
+  api
+    .get("/energy-class")
+    .then((res) => {
+      energy_classes = res.data;
+      console.log(energy_classes);
+    })
+    .catch((e) => {
+      error_text.value = "cannot get available energy classes: " + e.message;
+    });
+});
 </script>
 
 <template lang="pug">
@@ -22,8 +36,8 @@ div(class="container w-50 text-center")
   select(class="form-select form-select-lg mt-1")
     option(v-for="device_type in device_types") {{ device_type }}
   IconAndSpan(icon="fa-plug" text="energy class")
-  select(class="form-select form-select-lg")
-    option(v-for="cls in energy_classes") {{ cls }}
+  select(class="form-select form-select-lg" v-model="en_cls")
+    option(v-for="(value, key) in energy_classes" :value="value") {{ key }}
   IconAndSpan(icon="fa-bolt" text="energy drain")
   div(class="input-group mt-1")
     input(type="text" class="form-control form-control-lg" placeholder="energy drain in kWh")
