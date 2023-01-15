@@ -21,3 +21,12 @@ async def create_room(room: Room):
     except DuplicateKeyError:
         return {"message": "room already exists"}
     return {"message": "OK"}
+
+@room.delete("/room/{room_name}")
+async def delete_room(room_name: str):
+    room_collection = conn.database.rooms
+    result = room_collection.delete_one({"name": room_name})
+    if result.deleted_count:
+        return {"message": "Room deleted successfully"}
+    else:
+        return {"message": "Room not found"}
