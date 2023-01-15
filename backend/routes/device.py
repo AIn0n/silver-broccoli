@@ -36,11 +36,8 @@ def add_new_device(room: str, device: Device):
 def remove_device(room: str, device: str):
     result = conn["database"]["rooms"].update_many(
         {"name": room},
-        {"$pull": {"devices": {"$elemMatch": {"name": device}}}}
+        {"$pull": {"devices": {"name": device}}}
     )
-    print(device_entity(conn["database"]["rooms"].find_one(
-        {"name": room,"devices": {"$elemMatch": {"name": device}}}
-    )))
     return {"message": result.modified_count}
 
 @device.get("/energy-class")
