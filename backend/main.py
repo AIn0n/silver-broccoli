@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from routes.room import room
 from routes.device import device
+from routes.timestamp import timestamp
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -10,3 +11,4 @@ app.add_middleware(
 
 app.include_router(room)
 app.include_router(device)
+app.include_router(timestamp)
