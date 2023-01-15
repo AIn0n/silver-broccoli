@@ -25,6 +25,16 @@ function get_rooms() {
 
 onBeforeMount(get_rooms);
 
+function delete_room(room: string) {
+  api
+    .delete(`/room/${room}`)
+    .then((res) => {
+      error.value = "successfully removed room";
+      get_rooms();
+    })
+    .catch((e) => (error.value = e.message));
+}
+
 function add_room() {
   api
     .post("/room/", { name: new_room_name.value })
@@ -60,10 +70,9 @@ const highest_consumption_devices = [
 <template lang="pug">
 div(class="row container")
   BorderList(title="Rooms")
-    li(class="list-group-item list-group-item-action d-flex justify-content-between"
-    v-for="room in rooms" @click="router.push('/room/' + room)")
-      span(class="fs-5") {{ room }}
-      button(type="button" class="btn-close" aria-label="Close")
+    li(class="list-group-item list-group-item-action d-flex justify-content-between" v-for="room in rooms")
+      span(class="fs-5" @click="router.push('/room/' + room)") {{ room }}
+      button(type="button" class="btn-close" aria-label="Close" @click="delete_room(room)")
     li(class="list-group-item list-group-item-action")
       div(class="input-group")
         input(type="text" class="form-control fs-5" placeholder="new room name" v-model="new_room_name")
